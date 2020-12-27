@@ -16,7 +16,7 @@ and
 ```gradle
 dependencies {
     // ...
-    implementation 'com.github.tudny:TudLogger:v1.0'
+    implementation 'com.github.tudny:TudLogger:v1.1'
 }
 ```
 
@@ -36,7 +36,7 @@ and
 <dependency>
     <groupId>com.github.tudny</groupId>
     <artifactId>TudLogger</artifactId>
-    <version>v1.0</version>
+    <version>v1.1</version>
 </dependency>
 ```
 
