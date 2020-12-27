@@ -49,7 +49,6 @@ public class Log {
         return getFormatter().format(LocalDateTime.now());
     }
 
-
     /**
      * Displays actual message to proper out stream as well as its time and type.
      * @param printStream out stream; could be any, but this class uses System.out and System.err only.
@@ -60,7 +59,6 @@ public class Log {
         printStream.printf("%s | %s | %s\n", getTime(), type, message);
     }
 
-
     /**
      * Sends debug log with {@link #DEBUG} label and System.out as PrintStream.
      * @param message message displayed in log.
@@ -70,16 +68,34 @@ public class Log {
     }
 
     /**
+     * Sends debug log with {@link #DEBUG} label and System.out as PrintStream, but uses formatted form od the message.
+     * @param format message displayed in log.
+     * @param args arguments for formatted message.
+     */
+    public static void df(String format, Object... args) {
+        d(String.format(format, args));
+    }
+
+    /**
      * Sends error log with {@link #ERROR} label and System.err as PrintStream.
-     * @param message message displayed in log.
+     * @param message error message displayed in log.
      */
     public static void e(String message) {
         send(System.err, message, ERROR);
     }
 
     /**
-     * Simply runs {@link #e}, but prints stack trace as well.
-     * @param message message displayed in log.
+     * Sends error log with {@link #ERROR} label and System.err as PrintStream, but uses formatted form od the message.
+     * @param format error message displayed in log.
+     * @param args arguments for formatted message.
+     */
+    public static void ef(String format, Object... args) {
+        e(String.format(format, args));
+    }
+
+    /**
+     * Simply runs {@link #e(String)}, but prints stack trace as well.
+     * @param message error message displayed in log.
      * @param throwable exception which stack trace will be printed.
      */
     public static void e(String message, Throwable throwable) {
@@ -87,6 +103,15 @@ public class Log {
         throwable.printStackTrace();
     }
 
+    /**
+     * Simply runs {@link #e(String, Throwable)}, but prints stack trace as well.
+     * @param throwable exception which stack trace will be printed.
+     * @param format error message displayed in log.
+     * @param args arguments for formatted message.
+     */
+    public static void ef(Throwable throwable, String format, Object... args) {
+        e(String.format(format, args), throwable);
+    }
 
     /**
      * User can set if they want to display milliseconds in logger.
