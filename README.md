@@ -86,4 +86,4 @@ Log.setMilis(false);
 ```
 
 # Documentation
-Available in [docs](docs/index.html).
+Available in [docs](https://tudny.github.io/TudLogger/).
