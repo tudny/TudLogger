@@ -1,5 +1,8 @@
 [![](https://jitpack.io/v/tudny/TudLogger.svg)](https://jitpack.io/#tudny/TudLogger)
 
+# About
+TudLogger is a simple logger tool for smaller projects inspired by Android logger tools.
+
 # Installation
 ## Gradle
 Add these lines to your `gradle.build`:
