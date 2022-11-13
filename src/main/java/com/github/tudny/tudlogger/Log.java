@@ -55,16 +55,16 @@ public class Log {
      * @param message message displayed in log.
      * @param type type of message; displayed next to the date.
      */
-    private static void send(PrintStream printStream, String message, String type) {
-        printStream.printf("%s | %s | %s\n", getTime(), type, message);
+    private static void send(PrintStream printStream, String tag, String message, String type) {
+        printStream.printf("%s | %s | %s | %s\n", getTime(), type, tag, message);
     }
 
     /**
      * Sends debug log with {@link #DEBUG} label and System.out as PrintStream.
      * @param message message displayed in log.
      */
-    public static void d(String message) {
-        send(System.out, message, DEBUG);
+    public static void d(String tag, String message) {
+        send(System.out, tag, message, DEBUG);
     }
 
     /**
@@ -72,16 +72,16 @@ public class Log {
      * @param format message displayed in log.
      * @param args arguments for formatted message.
      */
-    public static void df(String format, Object... args) {
-        d(String.format(format, args));
+    public static void df(String tag, String format, Object... args) {
+        d(tag, String.format(format, args));
     }
 
     /**
      * Sends error log with {@link #ERROR} label and System.err as PrintStream.
      * @param message error message displayed in log.
      */
-    public static void e(String message) {
-        send(System.err, message, ERROR);
+    public static void e(String tag, String message) {
+        send(System.err, tag, message, ERROR);
     }
 
     /**
@@ -89,28 +89,28 @@ public class Log {
      * @param format error message displayed in log.
      * @param args arguments for formatted message.
      */
-    public static void ef(String format, Object... args) {
-        e(String.format(format, args));
+    public static void ef(String tag, String format, Object... args) {
+        e(tag, String.format(format, args));
     }
 
     /**
-     * Simply runs {@link #e(String)}, but prints stack trace as well.
+     * Simply runs {@link #e(String, String)}, but prints stack trace as well.
      * @param message error message displayed in log.
      * @param throwable exception which stack trace will be printed.
      */
-    public static void e(String message, Throwable throwable) {
-        e(message);
-        throwable.printStackTrace();
+    public static void e(String tag, String message, Throwable throwable) {
+        e(tag, message);
+        throwable.printStackTrace(System.err);
     }
 
     /**
-     * Simply runs {@link #e(String, Throwable)}, but prints stack trace as well.
+     * Simply runs {@link #e(String, String, Throwable)}, but prints stack trace as well.
      * @param throwable exception which stack trace will be printed.
      * @param format error message displayed in log.
      * @param args arguments for formatted message.
      */
-    public static void ef(Throwable throwable, String format, Object... args) {
-        e(String.format(format, args), throwable);
+    public static void ef(String tag, Throwable throwable, String format, Object... args) {
+        e(tag, String.format(format, args), throwable);
     }
 
     /**
