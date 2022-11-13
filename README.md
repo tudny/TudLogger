@@ -1,5 +1,8 @@
 [![](https://jitpack.io/v/tudny/TudLogger.svg)](https://jitpack.io/#tudny/TudLogger)
 
+# About
+TudLogger is a simple logger tool for smaller projects inspired by Android logger tools.
+
 # Installation
 ## Gradle
 Add these lines to your `gradle.build`:
@@ -43,11 +46,11 @@ and
 # Usage
 Log (DEBUG) to standard output (System.out)
 ```java
-Log.d("This is my message <3");
+Log.d("This is my message.");
 ```
 
 ````bash
-2020/12/26 20:49:58 | Debug | This is my message <3
+2020/12/26 20:49:58 | Debug | This is my message.
 ````
 
 Log (ERROR) to standard error output (System.err)
@@ -81,8 +84,8 @@ Log.setMilis(false);
 ```
 
 ```bash
-2020/12/26 20:49:00.5010 | Debug | This is my message without millis <3
-2020/12/26 20:49:00 | Debug | This is my message with millis <3
+2020/12/26 20:49:00.5010 | Debug | This is my message without millis 
+2020/12/26 20:49:00 | Debug | This is my message with millis 
 ```
 
 # Documentation
